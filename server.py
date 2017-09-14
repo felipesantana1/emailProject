@@ -19,17 +19,19 @@ def submitEmail():
     return render_template('success.html', all_emails = emails)
 
 @app.route('/email', methods=['POST'])
+
 def displayEmails():
     print request.form['email']
-
-    query = 'INSERT INTO email (email, created_at, updated_at) VALUES (:email, NOW(), NOW())'
-    data = {
-        'email': request.form['email']
-    }
-    emails = mysql.query_db(query, data)
+    
     if not EMAIL_REGEX.match(request.form['email']):
         flash('Invalid email address!')
         return redirect('/')
+    else:
+        query = 'INSERT INTO email (email, created_at, updated_at) VALUES (:email, NOW(), NOW())'
+        data = {
+            'email': request.form['email']
+            }
+        emails = mysql.query_db(query, data)
     return redirect('/success')
 
 app.run(debug=True)

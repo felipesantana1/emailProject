@@ -6,16 +6,15 @@
 </head>
 <body>
 
+    <h1>Email Adresses Entered</h1>
+
     <table>
-        <tr>
-            <h1><th>Email Adresses Entered</th></h1>
-        </tr>
         {% for x in all_emails %}
         <tr>
             <td>{{ x['email'] }}</td>
         </tr>
         {% endfor %}
-        </table>
+    </table>
 
 </body>
 </html>
