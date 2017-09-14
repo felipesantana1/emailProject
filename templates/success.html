@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Success</title>
+</head>
+<body>
+
+    <table>
+        <tr>
+            <h1><th>Email Adresses Entered</th></h1>
+        </tr>
+        {% for x in all_emails %}
+        <tr>
+            <td>{{ x['email'] }}</td>
+        </tr>
+        {% endfor %}
+        </table>
+
+</body>
+</html>
